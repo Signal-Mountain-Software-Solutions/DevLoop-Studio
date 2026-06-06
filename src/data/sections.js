@@ -1,0 +1,123 @@
+import { Gamepad2, Sparkles, BookOpen, Layers3, FileText, Wand2, Cpu } from "lucide-react";
+
+function field(label, path, placeholder, textarea = false) {
+  return { label, path, placeholder, textarea };
+}
+
+export const SECTIONS = [
+  {
+    key: "meta",
+    title: "Concept Intake",
+    description: "Front-load enough information to generate a strong concept document.",
+    icon: Gamepad2,
+    fields: [
+      field("Project Name", "meta.projectName", "e.g., Ashen Crown"),
+      field("Elevator Pitch", "meta.elevatorPitch", "One-sentence hook for the game", true),
+      field("Concept Summary", "meta.conceptSummary", "What is the game? What makes it compelling?", true),
+      field("Player Fantasy", "meta.playerFantasy", "Who is the player becoming or doing?", true),
+      field("Target Audience", "meta.audience", "Who is this for? Genre fans? Casual players?", true),
+      field("Platform", "meta.platform", "PC, console, mobile, web"),
+      field("Camera / Perspective", "meta.cameraPerspective", "Top-down, isometric, side view, first-person, etc."),
+      field("Visual Style", "meta.visualStyle", "Pixel art, stylized 3D, low poly, hand-drawn, etc."),
+    ],
+  },
+  {
+    key: "concept",
+    title: "Design North Star",
+    description: "Define the pillars and deliberate choices that anchor the game.",
+    icon: Sparkles,
+    fields: [
+      field("Design Pillars", "concept.pillars", "3-5 non-negotiable design pillars", true),
+      field("Inspirations / Comparables", "concept.inspirations", "Games, genres, media, references", true),
+      field("Differentiators", "concept.differentiators", "Why this game stands out", true),
+      field("Ideal Session Length", "concept.sessionLength", "How long should a typical play session be?"),
+      field("Monetization Model", "concept.monetization", "Premium, free-to-play, demo, etc."),
+      field("Scope Target", "concept.scopeTarget", "Prototype, vertical slice, indie launch, etc."),
+      field("Win Condition", "concept.winCondition", "How does the player succeed?", true),
+      field("Fail State", "concept.failState", "How does the player fail or loop?", true),
+      field("Emotional Goal", "concept.emotionalGoal", "What should the player feel?", true),
+    ],
+  },
+  {
+    key: "world",
+    title: "World, Lore & Narrative",
+    description: "Capture the setting, fiction, and narrative scaffolding.",
+    icon: BookOpen,
+    fields: [
+      field("Setting", "world.setting", "World/era/location", true),
+      field("Premise", "world.premise", "Narrative premise and initial setup", true),
+      field("Factions", "world.factions", "Key groups, alliances, rivals", true),
+      field("Lore Summary", "world.loreSummary", "Mythology, history, backstory", true),
+      field("Tone", "world.tone", "Whimsical, dark, hopeful, satirical, etc."),
+      field("Narrative Structure", "world.narrativeStructure", "Linear, branching, emergent, run-based environmental storytelling"),
+      field("Protagonist", "world.protagonist", "Main character / role", true),
+      field("Antagonist / Opposition", "world.antagonist", "Primary opposing force", true),
+    ],
+  },
+  {
+    key: "systems",
+    title: "Core Systems & Progression",
+    description: "Outline the mechanical foundation and progression model.",
+    icon: Layers3,
+    fields: [
+      field("Core Loop", "systems.coreLoop", "Describe the repeatable core loop", true),
+      field("Progression", "systems.progression", "Character/base/meta progression", true),
+      field("Systems List", "systems.systemsList", "Combat, crafting, dialogue, farming, deckbuilding, etc.", true),
+      field("Controls / Input", "systems.controls", "Keyboard/mouse, controller, touch, etc.", true),
+      field("Combat / Interaction Model", "systems.combatOrInteraction", "Turn-based, real-time, swap/match, placement, dialog choices, etc.", true),
+      field("Economy / Resource Model", "systems.economy", "Currencies, resources, sinks, earnings", true),
+      field("Difficulty Model", "systems.difficulty", "Scaling, settings, challenge structure", true),
+      field("Save Model", "systems.saveModel", "Checkpoint, save-anywhere, per-run, chapter-based"),
+      field("Replayability Hooks", "systems.replayability", "Randomization, unlocks, alternate builds, scenarios", true),
+    ],
+  },
+  {
+    key: "content",
+    title: "Content & Experience Design",
+    description: "Define the playable content, structure, and user experience.",
+    icon: FileText,
+    fields: [
+      field("Game Modes", "content.gameModes", "Single-player, co-op, PvP, sandbox, campaign"),
+      field("Level / World Structure", "content.levelsOrWorldStructure", "Acts, biomes, stages, map nodes, overworld, etc.", true),
+      field("Quest / Objective Structure", "content.questStructure", "Primary/side quests, objectives, contracts, goals", true),
+      field("Enemies / Challenges", "content.enemiesOrChallenges", "Enemy types, puzzle constraints, dilemmas, disasters", true),
+      field("Items / Abilities / Tools", "content.itemsAbilities", "Weapons, cards, spells, powers, management tools", true),
+      field("UI/UX Notes", "content.uiUxNotes", "HUD, menus, information density, interaction patterns", true),
+      field("Accessibility", "content.accessibility", "Input remapping, colorblind support, readability, assist modes", true),
+      field("Tutorial / Onboarding", "content.tutorialOnboarding", "How the game teaches players", true),
+    ],
+  },
+  {
+    key: "assets",
+    title: "Asset Pack Planning",
+    description: "Specify what is needed to generate, source, or commission assets.",
+    icon: Wand2,
+    fields: [
+      field("Art Needs", "assets.artNeeds", "Characters, environments, icons, UI, props, tilesets", true),
+      field("Animation Needs", "assets.animationNeeds", "Locomotion, combat, reactions, UI transitions", true),
+      field("Audio Needs", "assets.audioNeeds", "Music, SFX, ambience, VO", true),
+      field("VFX Needs", "assets.vfxNeeds", "Spell effects, impacts, environmental effects", true),
+      field("Narrative Assets", "assets.narrativeAssets", "Dialogue, codex, item descriptions, lore text", true),
+      field("Technical Assets", "assets.technicalAssets", "Prefabs, sprite atlases, data tables, config files", true),
+      field("Asset Pack Approach", "assets.assetPackApproach", "Original, kitbash, marketplace packs, AI-generated placeholders", true),
+    ],
+  },
+  {
+    key: "technical",
+    title: "Engine Starter & Technical Specs",
+    description: "Define what an AI partner would need to create a starter engine and implementation plan.",
+    icon: Cpu,
+    fields: [
+      field("Target Engine", "technical.targetEngine", "Unity, Godot, Unreal, custom web stack"),
+      field("Engine Architecture", "technical.engineArchitecture", "Scene structure, data-driven systems, ECS/OOP approach", true),
+      field("Core Modules", "technical.coreModules", "Input, camera, state machine, save/load, AI, combat, UI, procgen, etc.", true),
+      field("AI Partner Tasks", "technical.aiPartnerTasks", "What should Copilot/AI generate, propose, or scaffold?", true),
+      field("Required Tools / Pipeline", "technical.requiredTools", "Engine, version control, asset tools, script pipelines", true),
+      field("Performance Targets", "technical.performanceTargets", "Frame rate, load time, memory, device targets", true),
+      field("Save Data Requirements", "technical.saveDataRequirements", "What must be serialized?", true),
+      field("Multiplayer Need", "technical.multiplayer", "No / Optional / Yes"),
+      field("Live Ops / Post-Launch", "technical.liveOps", "No / Seasonal / Ongoing content"),
+    ],
+  },
+];
+``
